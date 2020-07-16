@@ -4,7 +4,7 @@ pipeline{
         stage('Docker-compose'){
            steps{
              sh 'echo "Running docker-compose.yml......setting up containers!"'
-             sh 'docker-compose up -d'
+             sh 'docker-compose up -d --force-recreate --tls'
                 }
            }
         
