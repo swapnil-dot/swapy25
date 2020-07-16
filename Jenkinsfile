@@ -6,9 +6,14 @@ pipeline{
              sh 'echo "Running docker-compose.yml......setting up containers!"'
              sh 'docker-compose build'
              
-             step([$class: 'DockerComposeBuilder', dockerComposeFile: 'docker-compose.yml', option: [$class: 'StartService', scale: 1, service: 'java'], useCustomDockerComposeFile: false])
-           
-                }
+             sh "docker-compose up -d"
+                sh """
+                    docker run --rm \                    
+                        -v /var/run/docker.sock:/var/run/docker.sock:ro \                      
+                        
+                        swapy25/maven-is-up
+                """
+                 }
            }
         
      }
