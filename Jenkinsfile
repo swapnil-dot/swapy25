@@ -5,7 +5,7 @@ pipeline{
            steps{
              sh 'echo "Running docker-compose.yml......setting up containers!"'
              sh 'docker-compose build'
-             sh 'docker-compose up -d --tls'
+             
            
                 }
            }
