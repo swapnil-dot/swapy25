@@ -1,8 +1,7 @@
 version: '2'
 volumes:
         web_data:
-                external:
-                        name: new
+                external: true
 services:
   jenkins:
           image: swapy25/jenkins1
