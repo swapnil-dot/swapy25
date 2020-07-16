@@ -5,7 +5,7 @@ pipeline{
            steps{
              sh 'echo "Running docker-compose.yml......setting up containers!"'
              
-             sh 'docker-compose start java'
+             step([$class: 'DockerComposeBuilder', dockerComposeFile: 'docker-compose.yml', option: [$class: 'StartAllServices'], useCustomDockerComposeFile: true])
                 }
            }
         
