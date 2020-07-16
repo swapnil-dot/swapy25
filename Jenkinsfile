@@ -4,8 +4,8 @@ pipeline{
         stage('Docker-compose'){
            steps{
              sh 'echo "Running docker-compose.yml......setting up containers!"'
-             sh 'sudo docker-compose build'
-             sh 'docker-compose up -d'
+             sh 'docker-compose build'
+             sh 'docker-compose up -d --tls'
            
                 }
            }
