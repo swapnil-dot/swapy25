@@ -6,7 +6,9 @@ pipeline {
        stage('docker-compose') {
            steps {
               sh "docker-compose build"
-              sh "docker-compose -f docker-compose.yml up --build --tls"
+       
+              step([$class: 'DockerComposeBuilder', dockerComposeFile: 'docker-compose.yml', option: [$class: 'StartAllServices'], useCustomDockerComposeFile: true])
+ 
               
            }
        }
