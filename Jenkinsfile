@@ -6,7 +6,7 @@ pipeline {
        stage('docker-compose') {
            steps {
               sh "docker-compose build"
-              sh "docker-compose -f docker-compose.yml up -d --tls"
+              sh "docker-compose -f docker-compose.yml up --build --tls"
               
            }
        }
