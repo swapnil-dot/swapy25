@@ -5,17 +5,16 @@ pipeline {
    stages {
        stage('docker-compose file setup') {
            steps {
-              sh "docker-compose build"
               sh 'echo "Running docker-compose build and deploy commands.........."'
-       
-              step([$class: 'DockerComposeBuilder', dockerComposeFile: 'docker-compose.yml', option: [$class: 'StartAllServices'], useCustomDockerComposeFile: true])
- 
-              
+              sh "docker-compose build"   
+                    
            }
        }
       stage('Deploy'){
          steps{
             sh 'echo "deploying...."'
+            step([$class: 'DockerComposeBuilder', dockerComposeFile: 'docker-compose.yml', option: [$class: 'StartAllServices'], useCustomDockerComposeFile: true])
+              
          }
          
       }
