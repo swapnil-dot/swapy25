@@ -1,5 +1,8 @@
 version: '2.0'
 services:
+  eclipse:
+          image: swapy25/eclipse
+          command: tail -f /dev/null
   jenkins:
           image: swapy25/jenkins1
           ports:
