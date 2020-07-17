@@ -13,6 +13,9 @@ pipeline {
               
            }
        }
+      stage('Deploy'){
+         sh 'echo "Deploying.."'
+      }
    }
   
  post {
